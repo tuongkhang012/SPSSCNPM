@@ -4,6 +4,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import About from '../views/About.vue'
 import Home from '../views/Home.vue'
 import NotFound from '../views/NotFound.vue'
+import Login from '../views/Login.vue'
 
 import StudentHome from '../views/student/StudentHome.vue'
 import AdminHome from '../views/spso/AdminHome.vue'
@@ -12,7 +13,8 @@ import AdminHome from '../views/spso/AdminHome.vue'
 const routes = [
     { 
         path: '/',
-        component: Home,
+        // component: Home,
+        component: Login,
         meta: {
             title: 'Smart Printing System',
         }
@@ -22,7 +24,7 @@ const routes = [
         path: '/about',
         component: About,
         meta: {
-            title: 'Smart Printing System | About',
+            title: 'About - Smart Printing System',
         }
     },
 
@@ -30,7 +32,7 @@ const routes = [
         path: '/student',
         component: StudentHome,
         meta: {
-            title: 'Smart Printing System | Student',
+            title: 'Smart Printing System',
         }
     },
 
@@ -38,8 +40,16 @@ const routes = [
         path: '/admin',
         component: AdminHome,
         meta: {
-            title: 'Smart Printing System | SPSO',
+            title: 'Smart Printing System',
         }
+    },
+
+    {
+        path: '/account/login',
+        component: Login,
+        meta: {
+            title: 'Account Login - Smart Printing System',
+        },
     },
 
     {
@@ -47,7 +57,6 @@ const routes = [
         component: NotFound,
         meta: {
             title: '404 Not Found',
-            hideNavbar: true,
         },
     },
 ]
@@ -60,9 +69,24 @@ const router = createRouter({
     linkExactActiveClass: "active",
 })
 
-// This is for loading the title of each page before routing to the actual page itself, we load it via the meta tag
-router.beforeEach((to, from) => {
-    document.title = to.meta?.title ?? 'Blank'
-})
 
+import store from './../global/store.js'
+
+router.beforeEach((to, from, next) => {
+    document.title = to.meta?.title ?? 'Blank'
+  
+    const studentRoutes = ['/print', '/orders', '/contribute', '/student']
+    const adminRoutes = ['/manage', '/announcement', '/admin']
+  
+    if (store.state.isStudent && adminRoutes.includes(to.path)) {
+      next('/')
+    } else if (store.state.isAdmin && studentRoutes.includes(to.path)) {
+      next('/')
+    } else if (!store.state.isAdmin && !store.state.isStudent && to.path !== '/' && to.path !== '/about') {
+      next('/')
+    }
+    else {
+      next()
+    }
+  })
 export default router;

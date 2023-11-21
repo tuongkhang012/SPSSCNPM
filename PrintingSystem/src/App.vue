@@ -2,7 +2,7 @@
     <body>
     <div id="page-container">
       <div id="content-container">
-        <appNavbar v-if="!$route.meta.hideNavbar"/>
+        <component :is="navbarComponent" />
         <RouterView />
       </div>
       <appFooter id="footer"/>
@@ -11,9 +11,26 @@
 </template>
 
 <script setup>
-// import appNavbar from './components/NavbarStudent.vue'
-import appNavbar from './components/NavbarAdmin.vue'
+import appNavbarStudent from './components/NavbarStudent.vue'
+import appNavbarAdmin from './components/NavbarAdmin.vue'
+import appNavbarAnon from './components/NavbarAnon.vue'
 import appFooter from './components/Footer.vue'
+
+import { computed } from 'vue'
+import { useStore } from 'vuex'
+
+const store = useStore()
+
+const navbarComponent = computed(() => {
+  if (store.state.isStudent) {
+    return appNavbarStudent
+  } else if (store.state.isAdmin) {
+    return appNavbarAdmin
+  } else {
+    return appNavbarAnon
+  }
+})
+
 </script>
 
 <style>

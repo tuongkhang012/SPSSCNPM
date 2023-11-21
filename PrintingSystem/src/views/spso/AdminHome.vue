@@ -1,19 +1,18 @@
 <template>
     <body>
         <div>
-        Test
+        Admin home
         </div>
     </body>
 </template>
 
 <script>
-export default {
-    name: "AdminHome",
-    inheritAttrs: false,
-    data () {
+    export default {
+        name: "AdminHome",
+        data () {
 
+        }
     }
-}
 </script>
 
 <style>

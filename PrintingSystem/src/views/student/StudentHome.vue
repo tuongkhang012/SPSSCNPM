@@ -1,7 +1,7 @@
 <template>
     <body>
         <div>
-        Test
+        Student home
         </div>
     </body>
 </template>
