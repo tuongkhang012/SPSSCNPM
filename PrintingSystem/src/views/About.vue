@@ -1,47 +1,48 @@
 <template>
-    <div class="flex items-center justify-center text-5xl font-semibold mt-11" style="font-family: 'Comfortaa';">About Us</div>
-    <div class="flex items-center justify-center text-xl mt-5" style="font-family: 'Comfortaa';">What we can provide for the users.</div>
-
-    <div class="grid grid-cols-1 md:grid-cols-3 mt-20" style="font-family: 'Comfortaa';"> 
-        <div class="w-1/2 mx-auto text-left mb-8 md:mb-0 md:mr-10">
-            <span class="text-xl font-bold block">Online Printing Website</span>
+    <div class="flex items-center justify-center text-5xl font-semibold mt-11" style="font-family: 'Comfortaa';">Giới thiệu</div>
+    <div class="flex items-center justify-center text-xl mt-5 mb-20" style="font-family: 'Comfortaa';">Những tiện ích của trang web</div>
+    
+    <div class="max-w-screen-xl flex flex-wrap justify-between items-center mx-auto p-4">
+    <div class="grid grid-cols-1 md:grid-cols-3" style="font-family: 'Comfortaa';"> 
+        <div class="w-4/5 mx-auto text-left mb-8 md:mb-0 md:mr-10">
+            <span class="text-xl font-bold block">Trang web in ấn online</span>
             <span style="display:block; margin-top:5px; margin-bottom:20px; background: linear-gradient(90deg, #F2E67C 0%, #FFFFFF 100%); height: 2px"></span>
-            <span>This web app comes in handy when you need to print a document file. It does not require installation, and it works in your browser.</span>
+            <span>Ứng dụng web này rất tiện lợi khi bạn cần in một tệp tài liệu. Nó không yêu cầu cài đặt và hoạt động trực tiếp trên trình duyệt của bạn.</span>
         </div>
 
-        <div class="w-1/2 mx-auto text-left mb-8 md:mb-0">
-            <span class="text-xl font-bold block">Security Guaranteed</span>
+        <div class="w-4/5 mx-auto text-left mb-8 md:mb-0">
+            <span class="text-xl font-bold block">Tính bảo mật cao</span>
             <span style="display:block; margin-top:5px; margin-bottom:20px; background: linear-gradient(90deg, #FF3F38 0%, #FFFFFF 100%); height: 2px"></span>
-            <span>Your files are deleted from our servers a few hours after you are done working with them. Nobody has access to them except you.</span>
+            <span>Các tệp của bạn sẽ được xóa khỏi máy chủ của ứng dụng vài giờ sau khi thực hiện việc in ấn. Không ai có quyền truy cập vào chúng trừ bạn.</span>
         </div>
             
-        <div class="w-1/2 mx-auto text-left mb-8 md:mb-0 md:ml-10">
-            <span class="text-xl font-bold block">Easy To Use</span>
+        <div class="w-4/5 mx-auto text-left mb-8 md:mb-0 md:ml-10">
+            <span class="text-xl font-bold block">Dễ dàng sử dụng</span>
             <span style="display:block; margin-top:5px; margin-bottom:20px; background: linear-gradient(90deg, #00CDE8 0%, #FFFFFF 100%); height: 2px"></span>
-            <span>The app uses a user-friendly interface, with easy-to-read instructions and simple operations being integrated.</span>
+            <span>Ứng dụng sử dụng giao diện thân thiện với người dùng, với hướng dẫn dễ đọc và được tích hợp các thao tác rất đơn giản.</span>
         </div>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-3 mt-2 md:mt-20 mb-20" style="font-family: 'Comfortaa';"> 
-        <div class="w-1/2 mx-auto text-left mb-8 md:mb-0 md:mr-10">
-            <span class="text-xl font-bold block">Multiple Settings</span>
+        <div class="w-4/5 mx-auto text-left mb-8 md:mb-0 md:mr-10">
+            <span class="text-xl font-bold block">Đa dạng về cài đặt</span>
             <span style="display:block; margin-top:5px; margin-bottom:20px; background: linear-gradient(90deg, #5cfa79 0%, #FFFFFF 100%); height: 2px"></span>
-            <span>This website allows you to change the settings before printing, with various configs such as Layout, Paper size or even the Scale.</span>
+            <span>Trang web này cho phép bạn thay đổi các cài đặt trước khi in, với nhiều cấu hình khác nhau như bố cục, kích thước giấy hoặc thậm chí là tỷ lệ trang in.</span>
         </div>
 
-        <div class="w-1/2 mx-auto text-left mb-8 md:mb-0">
-            <span class="text-xl font-bold block">Multiple File Formats</span>
+        <div class="w-4/5 mx-auto text-left mb-8 md:mb-0">
+            <span class="text-xl font-bold block">Đa dạng về loại tệp tin</span>
             <span style="display:block; margin-top:5px; margin-bottom:20px; background: linear-gradient(90deg, #fa5cf2 0%, #FFFFFF 100%); height: 2px"></span>
-            <span>The app supports mostly used file formats (.doc, .docx, .pdf). If your file fails to open, then it is probably damaged or it is too big.</span>
+            <span>Ứng dụng hỗ trợ hầu hết các định dạng tệp được sử dụng nhiều (.doc, .docx, .pdf). Nếu tệp của bạn không mở được, thì có thể tệp tin bị hỏng hoặc quá lớn.</span>
         </div>
             
-        <div class="w-1/2 mx-auto text-left mb-8 md:mb-0 md:ml-10">
-            <span class="text-xl font-bold block">Available Anywhere</span>
+        <div class="w-4/5 mx-auto text-left mb-8 md:mb-0 md:ml-10">
+            <span class="text-xl font-bold block">Truy cập mọi nơi</span>
             <span style="display:block; margin-top:5px; margin-bottom:20px; background: linear-gradient(90deg, #f7a828 0%, #FFFFFF 100%); height: 2px"></span>
-            <span>Just need you to set your country, we will show what can we provide for that specific location.</span>
+            <span>Chỉ cần bạn thiết lập quốc gia của mình, chúng tôi sẽ hiển thị những gì ứng dụng có thể cung cấp cho địa điểm cụ thể đó.</span>
         </div>
     </div>
-
+    </div>
 </template>
 
 <script>

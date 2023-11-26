@@ -27,7 +27,3 @@ npm run dev
 ```sh
 npm run build
 ```
-
-### Note
-
-The project uses tailwindCSS and Flowbite + Vuejs.

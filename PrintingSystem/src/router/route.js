@@ -1,12 +1,18 @@
 import { createRouter, createWebHistory } from 'vue-router'
+import store from './../global/store.js'
 
 // Import Webpages
 import About from '../views/About.vue'
 import Home from '../views/Home.vue'
 import NotFound from '../views/NotFound.vue'
 import Login from '../views/Login.vue'
+import Printers from '../views/Printers.vue'
 
 import StudentHome from '../views/student/StudentHome.vue'
+import Print from '../views/student/Print.vue'
+import PrintSettings from '../views/student/PrintSettings.vue'
+import PrintFinish from '../views/student/PrintFinish.vue'
+
 import AdminHome from '../views/spso/AdminHome.vue'
 
 // Setting up addresses with their associated webpages
@@ -24,7 +30,7 @@ const routes = [
         path: '/about',
         component: About,
         meta: {
-            title: 'About - Smart Printing System',
+            title: 'Giới thiệu - Smart Printing System',
         }
     },
 
@@ -44,11 +50,48 @@ const routes = [
         }
     },
 
+    // {
+    //     path: '/account/login',
+    //     component: Login,
+    //     meta: {
+    //         title: 'Account Login - Smart Printing System',
+    //     },
+    // },
+
     {
-        path: '/account/login',
-        component: Login,
+        path: '/printers',
+        component: Printers,
         meta: {
-            title: 'Account Login - Smart Printing System',
+            title: 'Máy in - Smart Printing System',
+        },
+    },
+
+    {
+        path: '/print/upload',
+        component: Print,
+        meta: {
+            title: 'In tài liệu - Smart Printing System',
+        },
+        beforeEnter: (to, from, next) => {
+            store.commit('setFileUploaded', false)
+            localStorage.removeItem('fileUploaded')
+            next()
+        }
+    },
+
+    {
+        path: '/print/settings',
+        component: PrintSettings,
+        meta: {
+            title: 'In tài liệu - Smart Printing System',
+        },
+    },
+
+    {
+        path: '/print/finish',
+        component: PrintFinish,
+        meta: {
+            title: 'In tài liệu - Smart Printing System',
         },
     },
 
@@ -69,24 +112,24 @@ const router = createRouter({
     linkExactActiveClass: "active",
 })
 
-
-import store from './../global/store.js'
-
 router.beforeEach((to, from, next) => {
     document.title = to.meta?.title ?? 'Blank'
   
-    const studentRoutes = ['/print', '/orders', '/contribute', '/student']
+    const studentRoutes = ['/orders', '/contribute', '/student']
     const adminRoutes = ['/manage', '/announcement', '/admin']
-  
+    const printPaths = ['/print/upload', '/print/settings', '/print/finish']
+    
     if (store.state.isStudent && adminRoutes.includes(to.path)) {
       next('/')
-    } else if (store.state.isAdmin && studentRoutes.includes(to.path)) {
+    } else if (store.state.isAdmin && (studentRoutes.includes(to.path) || printPaths.includes(to.path))) {
       next('/')
     } else if (!store.state.isAdmin && !store.state.isStudent && to.path !== '/' && to.path !== '/about') {
       next('/')
-    }
-    else {
+    } else if (!store.state.fileUploaded && (to.path === '/print/settings'  || to.path === '/print/finish')) {
+      next('/404')
+    } else {
       next()
     }
   })
+
 export default router;
