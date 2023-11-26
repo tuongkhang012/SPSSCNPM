@@ -5,26 +5,27 @@
             <div class="flex items-center justify-center text-xl font-semibold whitespace-nowrap mb-8" style="">Smart Printing System</div>  
             <form class="mb-4" @submit.prevent="checkLogin">
                 <div class="mb-6">
-                    <input type="username" id="username" v-model="username" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm font-semibold rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Username" required>
+                    <input type="username" id="username" v-model="username" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm font-semibold rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Tài khoản" required>
                 </div>
                 <div class="mb-6">
-                    <input type="password" id="password" v-model="password" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm font-semibold rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Password" required>
+                    <input type="password" id="password" v-model="password" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm font-semibold rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Mật khẩu" required>
                 </div>
                 <div class="flex items-start mb-6">
                     <div class="flex items-center h-5">
                     <input id="remember" type="checkbox" value="" class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300">
                     </div>
-                    <label for="remember" class="ms-2 text-sm text-gray-900">Remember me</label>
+                    <label for="remember" class="ms-2 text-sm text-gray-900">Ghi nhớ tài khoản</label>
                 </div>
-                <button type="submit" class="w-full text-blue-500 border border-blue-500 hover:bg-blue-500 hover:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 font-semibold rounded-lg text-sm px-4 py-2 text-center">Sign In</button>
+                <p v-if="errorMessage" class="text-sm text-red-500 mb-4 text-semibold">{{ errorMessage }}</p>
+                <button type="submit" class="w-full text-blue-500 border border-blue-500 hover:bg-blue-500 hover:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 font-semibold rounded-lg text-sm px-4 py-2 text-center">Đăng nhập</button>
             </form>
             <div class="flex justify-between text-sm mb-4" style="cursor: pointer;">
-                <a class="hover:underline">Forget Password?</a>
-                <a class="hover:underline">Sign Up</a>
+                <a class="hover:underline">Quên mật khẩu?</a>
+                <a class="hover:underline">Đăng ký</a>
             </div>
 
             <div class="flex items-center justify-center text-sm mb-3">
-                or you can sign in with
+                hoặc có thể đăng nhập bằng
             </div>
 
             <div class="flex justify-center space-evenly">
@@ -55,12 +56,14 @@ import { useStore } from 'vuex'
 
 export default {
   name: "Login",
+
   setup() {
     const router = useRouter()
     const store = useStore()
 
     const username = ref('')
     const password = ref('')
+    const errorMessage = ref('')
 
     const checkLogin = () => {
       if (username.value === 'cnpm' && password.value === 'cnpm@123') {
@@ -70,7 +73,7 @@ export default {
         localStorage.removeItem('isAdmin');
         localStorage.setItem('isStudent', 'true');
 
-        alert('Login success as student');
+        // alert('Login success as student');
         router.push('/student');
       } 
       
@@ -81,7 +84,7 @@ export default {
         localStorage.setItem('isAdmin', 'true');
         localStorage.removeItem('isStudent');
 
-        alert('Login success as admin');
+        // alert('Login success as admin');
         router.push('/admin');
       } 
       
@@ -90,14 +93,16 @@ export default {
         store.commit('setIsAdmin', false);
         localStorage.removeItem('isStudent');
         localStorage.removeItem('isAdmin');
-        alert('Login failed');
+        errorMessage.value = 'The username and/or password you specified are not correct.';
+        // alert('Login failed');
       }
     }
 
     return {
       username,
       password,
-      checkLogin
+      checkLogin,
+      errorMessage
     }
   },
 
