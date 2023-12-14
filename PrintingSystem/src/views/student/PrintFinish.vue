@@ -1,6 +1,6 @@
 <template>
     <div class="flex items-center justify-center text-5xl font-semibold mt-11" style="font-family: 'Comfortaa';">In tài liệu</div>
-    <div class="flex items-center justify-center text-xl mt-5 mb-12" style="font-family: 'Comfortaa';">Cảm ơn vì đã lựa chọn dịch vụ của chúng tôi</div>
+    <div class="flex items-center justify-center text-xl mt-5 mb-20" style="font-family: 'Comfortaa';">Cảm ơn vì đã lựa chọn dịch vụ của chúng tôi</div>
     <div class="max-w-screen-xl flex flex-col items-center justify-center mx-auto p-4" style="font-family: 'Comfortaa';">
         <div class="text-center text-xl mt-5 mb-4 block"><span class="font-semibold">Lời nhắc:</span>&nbsp;Bạn có thể truy cập vào trang&nbsp;<router-link to="/orders" class="text-blue-700 hover:text-blue-500" style="cursor: pointer;">Đơn in</router-link>&nbsp;để theo dõi các đơn đặt in.</div>
         <button type="button" @click="$router.push('/student')" class="mb-24 mt-2 w-60 text-blue-500 border border-blue-500 hover:bg-blue-500 hover:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 font-semibold rounded-lg text-sm px-4 py-2 text-center">Quay về trang chủ</button>

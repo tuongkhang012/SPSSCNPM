@@ -1,6 +1,6 @@
 <template>
     <body>
-        <div class="max-w-md mx-auto bg-white rounded-lg p-6 shadow-md mt-10" style="font-family: 'Comfortaa';">
+        <div class="max-w-md mx-auto bg-white rounded-lg p-6 shadow-md mt-16" style="font-family: 'Comfortaa';">
             <div class="flex items-center justify-center text-2xl font-semibold whitespace-nowrap mb-4" style="color: #00CDE8; ">Galacticos</div>  
             <div class="flex items-center justify-center text-xl font-semibold whitespace-nowrap mb-8" style="">Smart Printing System</div>  
             <form class="mb-4" @submit.prevent="checkLogin">
@@ -93,7 +93,7 @@ export default {
         store.commit('setIsAdmin', false);
         localStorage.removeItem('isStudent');
         localStorage.removeItem('isAdmin');
-        errorMessage.value = 'The username and/or password you specified are not correct.';
+        errorMessage.value = 'Tên người dùng và/hoặc mật khẩu bạn đã nhập không chính xác.';
         // alert('Login failed');
       }
     }
@@ -110,6 +110,8 @@ export default {
     const store = useStore()
     store.commit('setIsStudent', false)
     store.commit('setIsAdmin', false)
+    localStorage.removeItem('isStudent')
+    localStorage.removeItem('isAdmin')
     next()
   }
 }

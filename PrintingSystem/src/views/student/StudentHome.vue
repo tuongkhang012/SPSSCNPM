@@ -46,7 +46,7 @@
                     <div class="ml-3">
                         <div class="text-sm">7 ngày trước</div>
                         <div class="font-semibold">
-                            <router-link to="/student" class="text-blue-700 hover:text-blue-500" style="cursor: pointer;">SPSO</router-link> đã đăng <router-link to="/student" class="text-blue-700 hover:text-blue-500" style="cursor: pointer;">Giới thiệu về smart printing system</router-link>
+                            <router-link to="/student" class="text-blue-700 hover:text-blue-500" style="cursor: pointer;">SPSO</router-link> đã đăng <router-link to="/student" class="text-blue-700 hover:text-blue-500" style="cursor: pointer;">Giới thiệu về Smart Printing System</router-link>
                         </div>
                         <div>
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi...
