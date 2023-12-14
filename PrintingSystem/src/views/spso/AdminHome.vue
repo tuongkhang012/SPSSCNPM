@@ -10,7 +10,7 @@
                     <div class="ml-3">
                         <div class="text-sm">15 giờ trước</div>
                         <div class="font-semibold">
-                            <router-link to="/student" class="text-blue-700 hover:text-blue-500" style="cursor: pointer;">AkaneLink</router-link> đã đăng <router-link to="/student" class="text-blue-700 hover:text-blue-500" style="cursor: pointer;">Đánh giá trang web: 10/10!</router-link>
+                            <router-link to="/admin" class="text-blue-700 hover:text-blue-500" style="cursor: pointer;">AkaneLink</router-link> đã đăng <router-link to="/student" class="text-blue-700 hover:text-blue-500" style="cursor: pointer;">Đánh giá trang web: 10/10!</router-link>
                         </div>
                         <div>
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi...
@@ -28,7 +28,7 @@
                     <div class="ml-3">
                         <div class="text-sm">3 ngày trước</div>
                         <div class="font-semibold">
-                            Tài khoản ẩn danh đã đăng <router-link to="/student" class="text-blue-700 hover:text-blue-500" style="cursor: pointer;">Cách sử dụng trang web | Dev Team</router-link>
+                            Tài khoản ẩn danh đã đăng <router-link to="/admin" class="text-blue-700 hover:text-blue-500" style="cursor: pointer;">Cách sử dụng trang web | Dev Team</router-link>
                         </div>
                         <div>
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi...
@@ -46,7 +46,7 @@
                     <div class="ml-3">
                         <div class="text-sm">7 ngày trước</div>
                         <div class="font-semibold">
-                            <router-link to="/student" class="text-blue-700 hover:text-blue-500" style="cursor: pointer;">SPSO</router-link> đã đăng <router-link to="/student" class="text-blue-700 hover:text-blue-500" style="cursor: pointer;">Giới thiệu về smart printing system</router-link>
+                            <router-link to="/admin" class="text-blue-700 hover:text-blue-500" style="cursor: pointer;">SPSO</router-link> đã đăng <router-link to="/student" class="text-blue-700 hover:text-blue-500" style="cursor: pointer;">Giới thiệu về smart printing system</router-link>
                         </div>
                         <div>
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi...
@@ -61,14 +61,14 @@
                 <div class="mt-4 ml-4">
                     <div class="text-xl font-semibold text-white">Quản lý máy in?</div>
                     <div class="mb-10 text-white">Kiểm tra tình trạng của máy in.</div>
-                    <button type="button" @click="$router.push('/print')" class="text-black bg-white font-semibold rounded-lg text-sm px-4 py-2 text-center">Quản lý</button>
+                    <button type="button" @click="$router.push('/manage')" class="text-black bg-white font-semibold rounded-lg text-sm px-4 py-2 text-center">Quản lý</button>
                 </div>    
             </div>
             <div class="rounded-lg h-40 w-80 mb-10" style="background: linear-gradient(180deg, #7013f2 0%, #b13df5 150%);">
                 <div class="mt-4 ml-4">
                     <div class="text-xl font-semibold text-white">Thêm máy in mới?</div>
                     <div class="mb-10 text-white">Thêm máy in, cải thiện hệ thống.</div>
-                    <button type="button" @click="$router.push('/orders')" class="text-black bg-white font-semibold rounded-lg text-sm px-4 py-2 text-center">Máy in</button>
+                    <button type="button" @click="$router.push('/manage/add')" class="text-black bg-white font-semibold rounded-lg text-sm px-4 py-2 text-center">Máy in</button>
                 </div>    
             </div>
             <div class="rounded-lg h-40 w-80 mb-10" style="background: linear-gradient(180deg, #4a4949 0%, #F8F8F8 500%);">
@@ -76,7 +76,7 @@
                     <div class="text-xl font-semibold text-white">Thông báo gì đó?</div>
                     <div class="mb-10 text-white">Thông báo đến toàn thể sinh viên.</div>
                     <div class="text-right mr-4">
-                        <button type="button" @click="$router.push('/contribute')" class="text-white border border-gray-200 font-semibold rounded-lg text-sm px-4 py-2 text-center">Thông báo</button>
+                        <button type="button" @click="$router.push('/announcement')" class="text-white border border-gray-200 font-semibold rounded-lg text-sm px-4 py-2 text-center">Thông báo</button>
                     </div>
                 </div>     
             </div>

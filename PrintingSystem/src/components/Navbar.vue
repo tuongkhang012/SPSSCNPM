@@ -134,12 +134,12 @@
                                 </router-link>
                             </li>
                             <li class="hover:bg-gray-100">
-                                <router-link to="/" class="block inline-flex items-center px-4 py-2 text-sm text-gray-700">
+                                <button @click="logOut()" class="block inline-flex items-center px-4 py-2 text-sm text-gray-700">
                                 <svg class="w-3.5 h-3.5 mr-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 16">
                                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8h11m0 0-4-4m4 4-4 4m-5 3H3a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h3"/>
                                 </svg>
                                 Đăng xuất
-                                </router-link>
+                                </button>
                             </li>
                             </ul>
                         </div>
@@ -185,7 +185,6 @@
                     <li>
                     <router-link to="/contribute" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-500 md:p-0">Đóng góp</router-link>
                     </li>
-                    
                 </ul>
                 </div>
                 <!-- End navlinks -->
@@ -296,12 +295,12 @@
                         </router-link>
                     </li>
                     <li class="hover:bg-gray-100">
-                        <router-link to="/" class="block inline-flex items-center px-4 py-2 text-sm text-gray-700">
+                        <button @click="logOut()" class="block inline-flex items-center px-4 py-2 text-sm text-gray-700">
                         <svg class="w-3.5 h-3.5 mr-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 16">
                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8h11m0 0-4-4m4 4-4 4m-5 3H3a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h3"/>
                         </svg>
                         Đăng xuất
-                        </router-link>
+                        </button>
                     </li>
                     </ul>
                 </div>
@@ -324,13 +323,10 @@
                 <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-user">
                     <ul class="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white">
                         <li style="margin-right: 20px;">
-                        <router-link to="/admin" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-500 md:p-0">Thông báo</router-link>
+                        <router-link to="/admin" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-500 md:p-0">Trang chủ</router-link>
                         </li>
                         <li style="margin-right: 20px;">
                         <router-link to="/about" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-500 md:p-0">Giới thiệu</router-link>
-                        </li>
-                        <li style="margin-right: 20px;">
-                        <router-link to="/printers" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-500 md:p-0">Máy in</router-link>
                         </li>
                         <li style="margin-right: 20px;">
                         <router-link to="/manage" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-500 md:p-0">Quản lý</router-link>
@@ -345,15 +341,15 @@
         </nav>
     </template>
 
-    <template v-else>
-        <nav class="bg-white border-gray-200" style="font-family: 'Comfortaa';">
+    <template  v-else-if="store.state.isHome">
+        <nav style="font-family: 'Comfortaa'; background-color: #303030;">
             <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
                 <!-- Brand -->
                 <a style="color: #00CDE8; margin-right: 50px;">
-                <span class="self-center text-lg font-semibold whitespace-nowrap">Galacticos</span>
+                <span class="self-center text-xl font-semibold whitespace-nowrap">Galacticos</span>
                 </a>
 
-                <button data-collapse-toggle="navbar-user" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-default" aria-expanded="false">
+                <button data-collapse-toggle="navbar-user" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200" aria-controls="navbar-default" aria-expanded="false">
                     <span class="sr-only">Open main menu</span>
                     <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
@@ -362,7 +358,52 @@
 
                 <!-- Begin navlinks -->
                 <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-user">
-                <ul class="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white">
+                <ul class="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 bg-transparent">
+                    <li style="margin-right: 20px;">
+                    <router-link to="/" style="padding: 6px 8px;" class="block text-white rounded-full transition duration-300 ease-in-out md:hover:bg-gray-200 md:hover:text-gray-900 md:p-0">
+                        Trang chủ
+                    </router-link>
+                    </li>
+                    <li style="margin-right: 20px;">
+                    <router-link to="/about" style="padding: 6px 8px;" class="block text-white rounded-full transition duration-300 ease-in-out md:hover:bg-gray-200 md:hover:text-gray-900 md:p-0">
+                        Giới thiệu
+                    </router-link>
+                    </li>  
+                    <li style="margin-right: 20px;">
+                    <router-link to="/account/login" style="padding: 6px 8px;" class="block text-white rounded-full transition duration-300 ease-in-out md:hover:bg-gray-200 md:hover:text-gray-900 md:p-0">
+                        Đăng nhập
+                    </router-link>
+                    </li>
+                    <li style="margin-right: 20px;">
+                    <router-link to="/" style="padding: 6px 8px;" class="block text-white rounded-full transition duration-300 ease-in-out md:hover:bg-gray-200 md:hover:text-gray-900 md:p-0">
+                        Đăng ký
+                    </router-link>
+                    </li> 
+                </ul>
+                </div>
+                <!-- End navlinks -->
+            </div>
+        </nav>
+    </template>
+
+    <template v-else>
+        <nav class="bg-transparent" style="font-family: 'Comfortaa';">
+            <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+                <!-- Brand -->
+                <a style="color: #00CDE8; margin-right: 50px;">
+                <span class="self-center text-lg font-semibold whitespace-nowrap">Galacticos</span>
+                </a>
+
+                <button data-collapse-toggle="navbar-user" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200" aria-controls="navbar-default" aria-expanded="false">
+                    <span class="sr-only">Open main menu</span>
+                    <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
+                    </svg>
+                </button>
+
+                <!-- Begin navlinks -->
+                <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-user">
+                <ul class="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 bg-transparent">
                     <li style="margin-right: 20px;">
                     <router-link to="/" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-500 md:p-0">
                         Trang chủ
@@ -374,12 +415,12 @@
                     </router-link>
                     </li>  
                     <li style="margin-right: 20px;">
-                    <router-link to="/" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-500 md:p-0">
+                    <router-link to="/account/login" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-500 md:p-0">
                         Đăng nhập
                     </router-link>
                     </li>
                     <li style="margin-right: 20px;">
-                    <router-link to="/" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-500 md:p-0">
+                    <router-link to="/account/signup" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-500 md:p-0">
                         Đăng ký
                     </router-link>
                     </li> 
@@ -389,7 +430,6 @@
             </div>
         </nav>
     </template>
-
 </template>
 
 <script setup>
@@ -414,6 +454,11 @@ export default {
         tdNotif() {
             this.ddNotif = !this.ddNotif;
             this.ddAvatar = false
+        },
+        logOut() {
+            this.ddAvatar = false;
+            this.ddNotif = false;
+            this.$router.push('/');
         }
     }
 }

@@ -2,8 +2,8 @@
     <body>
     <div id="page-container">
       <div id="content-container">
-        <appNavbar id="navbar"/>
-        <RouterView />
+          <appNavbar id="navbar"/>
+          <RouterView />
       </div>
       <appFooter id="footer"/>
     </div>
@@ -31,7 +31,6 @@ html, body {
 
 #content-container {
   flex: 1;
-  padding-bottom: 10px; 
 }
 
 #footer {
