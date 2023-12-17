@@ -68,7 +68,7 @@
                 <div class="mt-4 ml-4">
                     <div class="text-xl font-semibold text-white">Thêm máy in mới?</div>
                     <div class="mb-10 text-white">Thêm máy in, cải thiện hệ thống.</div>
-                    <button type="button" @click="$router.push('/manage/add')" class="text-black bg-white font-semibold rounded-lg text-sm px-4 py-2 text-center">Máy in</button>
+                    <button type="button" @click="$router.push('/manage/add')" class="text-black bg-white font-semibold rounded-lg text-sm px-4 py-2 text-center">Thêm máy in</button>
                 </div>    
             </div>
             <div class="rounded-lg h-40 w-80 mb-10" style="background: linear-gradient(180deg, #4a4949 0%, #F8F8F8 500%);">

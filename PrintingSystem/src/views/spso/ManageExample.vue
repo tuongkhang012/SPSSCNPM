@@ -32,9 +32,11 @@
                         </div>
                     </div>
                 </div> 
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-10">
                     <button v-if="current" type="button" @click="activatePower()" class="mb-28 mt-2 w-full text-red-500 border border-red-500 hover:bg-red-500 hover:text-white focus:ring-4 focus:outline-none focus:ring-red-300 font-semibold rounded-lg text-sm px-4 py-2 text-center">Tắt máy in</button>
                     <button v-if="!current" type="button" @click="current = !current" class="mb-28 mt-2 w-full text-yellow-500 border border-yellow-500 hover:bg-yellow-500 hover:text-white focus:ring-4 focus:outline-none focus:ring-yellow-300 font-semibold rounded-lg text-sm px-4 py-2 text-center">Bật máy in</button>
+
+                    <button type="button" @click="activateDelete()" class="mb-28 mt-2 w-full text-red-500 border border-red-500 hover:bg-red-500 hover:text-white focus:ring-4 focus:outline-none focus:ring-red-300 font-semibold rounded-lg text-sm px-4 py-2 text-center">Xóa máy in</button>
 
                     <button type="button" @click="" class="mb-28 mt-2 w-full text-green-500 border border-green-500 hover:bg-green-500 hover:text-white focus:ring-4 focus:outline-none focus:ring-green-300 font-semibold rounded-lg text-sm px-4 py-2 text-center">Yêu cầu mực in</button>
                     <button type="button" @click="" class="mb-28 mt-2 w-full text-green-500 border border-green-500 hover:bg-green-500 hover:text-white focus:ring-4 focus:outline-none focus:ring-green-300 font-semibold rounded-lg text-sm px-4 py-2 text-center">Yêu cầu giấy</button>
@@ -59,6 +61,31 @@
                                         Xác nhận
                                     </button>
                                     <button @click="disablePower()" type="button" class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10">Trở về</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="popup-background" tabindex="-1" v-if="deleteThis" class="z-50">
+                    <div id="popup-modal">
+                        <div class="relative p-4 w-full max-w-md max-h-full">
+                            <div class="relative bg-white rounded-lg shadow">
+                                <button type="button" @click="disableDelete()" class="absolute top-3 end-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center">
+                                    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+                                    </svg>
+                                    <span class="sr-only">Close modal</span>
+                                </button>
+                                <div class="p-4 md:p-5 text-center">
+                                    <svg class="mx-auto mb-4 text-gray-400 w-12 h-12" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 11V6m0 8h.01M19 10a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
+                                    </svg>
+                                    <h3 class="mb-5 text-lg font-normal text-gray-500">Bạn chắc chắn muốn xoá máy in này?</h3>
+                                    <button @click="deletePrinter()" type="button" class="text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center me-2">
+                                        Xác nhận
+                                    </button>
+                                    <button @click="disableDelete()" type="button" class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10">Trở về</button>
                                 </div>
                             </div>
                         </div>
@@ -146,7 +173,7 @@
         leave-to-class="opacity-0"
         style="font-family: Comfortaa;"
     >
-        <div v-if="showAlert" class="flex items-center fixed w-full z-20 top-0 right-0 w-96 m-6 p-2 text-green-800 border-t-4 border-green-300 bg-green-50" role="alert">
+        <div v-if="showAlert" class="flex items-center fixed z-20 top-0 right-0 w-96 m-6 p-2 text-green-800 border-t-4 border-green-300 bg-green-50" role="alert">
             <svg class="flex-shrink-0 w-4 h-4" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
                 <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"/>
             </svg>
@@ -174,6 +201,7 @@ export default {
             changeImage: false,
             activePower: false,
             showAlert: false,
+            deleteThis: false,
         }
     },
     methods: {
@@ -187,9 +215,25 @@ export default {
             this.current = !this.current;
             this.disablePower();
         },
+        activateDelete() {
+            this.deleteThis = true;
+        },
+        disableDelete() {
+            this.deleteThis = false;
+        },
+        deletePrinter() {
+            this.$store.commit('setDelete', true);
+            this.autoCloseAlert2();
+            this.$router.push('/manage');
+        },
         autoCloseAlert() {
             setTimeout(() => {
                 this.showAlert = false;
+            }, 2000);
+        },
+        autoCloseAlert2() {
+            setTimeout(() => {
+                this.$store.commit('setDelete', false);
             }, 2000);
         }
     }
