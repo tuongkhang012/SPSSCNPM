@@ -13,7 +13,7 @@
                     <div>
                         <div class="text-xl mb-4">Mã máy in</div>
                         <div class="w-52 mb-8">
-                            <input type="text" value="CS1 - 111112" class="bg-gray-50 border-2 border-gray-300 text-gray-900 text-sm font-semibold rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                            <input type="text" value="" class="bg-gray-50 border-2 border-gray-300 text-gray-900 text-sm font-semibold rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
                         </div>
                         <div class="text-xl mb-4">Khổ giấy</div>
                         <div class="w-52 mb-8">
@@ -42,7 +42,7 @@
                     <div>
                         <div class="text-xl mb-4">Dòng máy in</div>
                         <div class="w-52 mb-8">
-                            <input type="text" value="HP Laser 107W" class="bg-gray-50 border-2 border-gray-300 text-gray-900 text-sm font-semibold rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                            <input type="text" value="" class="bg-gray-50 border-2 border-gray-300 text-gray-900 text-sm font-semibold rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
                         </div>
                         <div class="text-xl mb-4">Cài đặt thêm</div>
                         <div class="w-52 mb-8">
@@ -78,7 +78,7 @@
         leave-to-class="opacity-0"
         style="font-family: Comfortaa;"
     >
-        <div v-if="showAlert" class="flex items-center fixed w-full z-20 top-0 right-0 w-96 m-6 p-2 text-green-800 border-t-4 border-green-300 bg-green-50" role="alert">
+        <div v-if="showAlert" class="flex items-center fixed z-20 top-0 right-0 w-96 m-6 p-2 text-green-800 border-t-4 border-green-300 bg-green-50" role="alert">
             <svg class="flex-shrink-0 w-4 h-4" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
                 <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"/>
             </svg>

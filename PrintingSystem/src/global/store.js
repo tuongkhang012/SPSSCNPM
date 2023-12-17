@@ -12,6 +12,7 @@ export default createStore({
 
     printer: localStorage.getItem('printer'),
     fileName: localStorage.getItem('fileName'),
+    deleteSuccess: false,
   },
   mutations: {
     setIsStudent(state, value) {
@@ -35,6 +36,9 @@ export default createStore({
     },
     setCancel(state, value) {
       state.cancel = value;
+    },
+    setDelete(state, value) {
+      state.deleteSuccess = value;
     }
   },
   getters: {
